@@ -10,9 +10,13 @@ namespace AspNetMvcDiSample.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
-
+        private readonly ICurrencyCalculator _calculator;
+        
+        public HomeController(ICurrencyCalculator calculator)
+        {
+            _calculator = calculator;
+        }
+        
         public ActionResult Index()
         {
             return View();
@@ -22,8 +26,7 @@ namespace AspNetMvcDiSample.Controllers
         public ActionResult Index(decimal value, string sourceCurrency, string targetCurrency)
         {
             var inputMoney = new Money(value, sourceCurrency);
-            var calculator = new CurrencyCalculator(new InMemoryExchangeRateRepository());
-            ViewBag.Result = calculator.GetValueInCurrency(inputMoney, targetCurrency);
+            ViewBag.Result = _calculator.GetValueInCurrency(inputMoney, targetCurrency);
             return View();
         }
 

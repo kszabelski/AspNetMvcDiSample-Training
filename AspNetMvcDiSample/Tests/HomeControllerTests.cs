@@ -14,7 +14,7 @@ namespace AspNetMvcDiSample.Tests
             var fakeCalculator = new Mock<ICurrencyCalculator>();
             var testMoney = new Money(5.5m, "USD");
             fakeCalculator.Setup(c => c.GetValueInCurrency(It.IsAny<Money>(), It.IsAny<string>())).Returns(testMoney);
-            var controller = new HomeController();
+            var controller = new HomeController(fakeCalculator.Object);
 
             var result = controller.Index(0.1M, "test", "test");
 
