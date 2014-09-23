@@ -19,7 +19,9 @@ namespace AspNetMvcDiSample
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            
+
+            ControllerBuilder.Current.SetControllerFactory(new DiControllerFactory());
+       
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
