@@ -22,8 +22,8 @@ namespace AspNetMvcDiSample.Controllers
         public ActionResult Index(decimal value, string sourceCurrency, string targetCurrency)
         {
             var inputMoney = new Money(value, sourceCurrency);
-
-            ViewBag.Result = inputMoney;
+            var calculator = new CurrencyCalculator(new InMemoryExchangeRateRepository());
+            ViewBag.Result = calculator.GetValueInCurrency(inputMoney, targetCurrency);
             return View();
         }
 
