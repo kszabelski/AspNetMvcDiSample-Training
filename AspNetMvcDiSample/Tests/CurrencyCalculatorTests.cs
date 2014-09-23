@@ -13,7 +13,7 @@ namespace AspNetMvcDiSample.Tests
             exchangeRateRepositoryMock.Setup(e => e.GetExchangeRate("PLN", "USD")).Returns(3.0m);
 
             // TODO: start here be implementing calculator.
-            ICurrencyCalculator calc = null;
+            ICurrencyCalculator calc = new CurrencyCalculator(exchangeRateRepositoryMock.Object);
 
             var convertedMoney = calc.GetValueInCurrency(new Money(5, "PLN"), "USD");
 

@@ -136,6 +136,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CurrencyCalculator.cs" />
     <Compile Include="Models\ICurrencyCalculator.cs" />
     <Compile Include="Models\IExchangeRateRepository.cs" />
     <Compile Include="Models\InMemoryExchangeRateRepository.cs" />
