@@ -6,6 +6,10 @@ This repository is created for training purposes and contains sample and simple 
 
 # Steps
 
+Start from:
+
+git checkout 0_starting_point
+
 Implementations are trivial - no edge cases covered etc. Let's just focus on DI
 
 ## 1) Make ShouldCalculateExchangeRate test pass by implementing CurrencyCalculator
