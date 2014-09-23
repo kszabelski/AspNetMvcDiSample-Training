@@ -1,0 +1,19 @@
+﻿@model dynamic
+
+<h2>Home</h2>
+
+@if (ViewBag.Result != null)
+{
+    <div>
+        Your value is: @ViewBag.Result.Value @ViewBag.Result.Currency 
+    </div>
+}
+
+@using (var form = Html.BeginForm("Index", "Home"))
+{
+    <span>Value </span> @Html.TextBox("value") <br/>
+    <span>Source currency </span> @Html.TextBox("sourceCurrency") <br/>
+    <span>Target currency </span> @Html.TextBox("targetCurrency") <br/>
+    
+    <input type="submit" value="Calculate"/>
+}
